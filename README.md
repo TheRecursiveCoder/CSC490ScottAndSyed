@@ -56,4 +56,4 @@ Self-supervised Learning from Videos", Medical Image Computing and Computer Assi
 ```
 
 ## Acknowledgments
-This code borrows from [NVIDIA/pix2pixHD](https://github.com/NVIDIA/pix2pixHD).
+This code borrows from [NVIDIA/pix2pixHD](https://github.com/NVIDIA/pix2pixHD) and completely builds off of CkLibra (https://github.com/ckLibra/Self-Supervised-Depth-Estimation-for-Colonoscopy/blob/main/run_engine.py).
