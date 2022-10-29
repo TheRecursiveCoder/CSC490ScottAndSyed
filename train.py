@@ -11,7 +11,8 @@ from torch.autograd import Variable
 from collections import OrderedDict
 from subprocess import call
 import fractions
-def lcm(a,b): return abs(a * b)/fractions.gcd(a,b) if a and b else 0
+import math
+def lcm(a,b): return abs(a * b)/math.gcd(a,b) if a and b else 0
 
 from options.train_options import TrainOptions
 from data.data_loader import CreateDataLoader
@@ -77,7 +78,7 @@ depth_transform = transforms.Compose([#transforms.Resize((512, 512), Image.BICUB
                             transforms.ToTensor(),
                             transforms.Normalize([0.5, 0.5, 0.5], [0.5, 0.5, 0.5])
                             ])
-oc_dataset = OC_Dataset(root='/data12T/kcheng/colonoscopy/oc_dataset_train', depth_transform=depth_transform)
+oc_dataset = OC_Dataset(root='./../datasets/LDPolypVideo02/Test/Annotations', depth_transform=depth_transform)
 oc_dataloader = torch.utils.data.DataLoader(dataset=oc_dataset, batch_size=oc_batch, shuffle=True, num_workers=1, drop_last=True)
 oc_dataiter = iter(oc_dataloader)
 mean_warp_loss = 0.0

@@ -50,7 +50,8 @@ print("loading data")
 #load data
 data_path = '/data12T/kcheng/colonoscopy/colonoDepthEstimation/datasets/UCLDepth3'
 #dirs = ["test_A", "train_A"]
-dirs = ["test_A"]
+# dirs = ["Images", "Annotations"]
+dirs = ["train_A"]
 trans = transforms.Compose([transforms.Resize((512, 512), Image.BICUBIC),
                             transforms.ToTensor(),
                             transforms.Normalize([0.5, 0.5, 0.5], [0.5, 0.5, 0.5])
