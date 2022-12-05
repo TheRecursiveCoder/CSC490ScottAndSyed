@@ -1,3 +1,6 @@
 {
-    "zenMode.fullScreen": true
+    "zenMode.fullScreen": true,
+    "python.analysis.extraPaths": [
+        "./data"
+    ]
 }

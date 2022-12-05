@@ -25,6 +25,10 @@ from oflow.optical_flow import warp_loss
 from util.util import test
 import torchvision.transforms as transforms
 
+
+
+
+
 """
 #set random
 seed = 2020
@@ -73,17 +77,25 @@ oc_epoch = []
 
 #OC dataset
 oc_batch = 4
-oc_warp_loss_weight = 5.0
+oc_warp_loss_weight = 5.0 #Change this to change delta for optical flow
 depth_transform = transforms.Compose([#transforms.Resize((512, 512), Image.BICUBIC),
                             transforms.ToTensor(),
                             transforms.Normalize([0.5, 0.5, 0.5], [0.5, 0.5, 0.5])
                             ])
+
+# Create a graph based off depth transform
+# graph = depth_transform
+# g = Graph(graph)
+# source = 0; sink = 5
+# g.minCut(source, sink)
+
 oc_dataset = OC_Dataset(root='./../datasets/LDPolypVideo02/Test/Annotations', depth_transform=depth_transform)
 oc_dataloader = torch.utils.data.DataLoader(dataset=oc_dataset, batch_size=oc_batch, shuffle=True, num_workers=1, drop_last=True)
 oc_dataiter = iter(oc_dataloader)
 mean_warp_loss = 0.0
 oc_num = 1.0
 oc_count = 0
+
 
 model = create_model(opt)
 visualizer = Visualizer(opt)

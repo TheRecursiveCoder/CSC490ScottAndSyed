@@ -48,7 +48,7 @@ else:
 
 print("loading data")
 #load data
-data_path = '/data12T/kcheng/colonoscopy/colonoDepthEstimation/datasets/UCLDepth3'
+data_path = '/home/scott/Documents/CSC490/datasets/LDPolypVideo02/Test/Images' #Iterate over multiple folders of Videos
 #dirs = ["test_A", "train_A"]
 # dirs = ["Images", "Annotations"]
 dirs = ["train_A"]
@@ -95,15 +95,15 @@ for d in dirs:
         predicted = predicted.resize((256, 256), Image.BICUBIC)
         predicted = np.array(predicted)
         print(predicted)
-        exit()
+        # exit()
 
         name = img.split("FrameBuffer")
         depth_name = name[0] + "Depth" + name[1]
-        depth_path = os.path.join("/data12T/kcheng/colonoscopy/colonoDepthEstimation/datasets/UCLDepth3/test_B", depth_name)
-        #ground_truth = Image.open(depth_path).resize((512, 512),Image.BICUBIC)
+        depth_path = os.path.join("/home/scott/Documents/CSC490/datasets/LDPolypVideo02/Test/Images/Test_B", depth_name)
+        ground_truth = Image.open(depth_path).resize((512, 512),Image.BICUBIC)
         #ground_truth = Image.open(depth_path)
         #ground_truth = Image.open("/data12T/kcheng/colonoDepthEstimation/datasets/colon2depth/test_B/T3_L1_1_resized_Depth_0294.png")
-        #gt = np.array(ground_truth).astype(np.float32) / 255.0
+        gt = np.array(ground_truth).astype(np.float32) / 255.0
         gt = plt.imread(depth_path).astype(np.float32)
 
         #mean relative l1-error
@@ -133,6 +133,23 @@ for d in dirs:
         max_rle = max_rle if np.mean(rel_error) < max_rle else np.mean(rel_error)
         min_rmse = min_rmse if rmse_temp > min_rmse else rmse_temp
         max_rmse = max_rmse if rmse_temp < max_rmse else rmse_temp
+
+        #Graph Cuts
+        # import sys
+        # sys.path.insert(1, '/home/scott/Documents/CSC490/CSC490ScottAndSyed/data')
+        # from minCutGraph import Graph
+
+        from data.minCutGraph import Graph
+
+        graph = min_le
+        g = Graph(graph)
+        source = 0; sink = 5
+        g.minCut(source, sink)
+        min_le = g
+
+
+        
+
         #save_img(generated[0], d, img)
         if num % 100 == 0:
             print("----------------------------------------------------------------------")
