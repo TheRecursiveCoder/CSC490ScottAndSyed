@@ -51,8 +51,23 @@ python train.py --name colon2depth_512p --batchSize 8 --gpu_ids 1,2 --label_nc 0
 If you find this useful for your research, please use the following.
 
 ```
-Kai. Cheng, Yiting. Ma, Yang. Li, Bin. Sun and Xuejin. Chen. "Depth Estimation for Colonoscopy Images with
-Self-supervised Learning from Videos", Medical Image Computing and Computer Assisted Intervention Society, 2021
+
+Kai Cheng, Yiting Ma, Bin Sun, Yang Li, and Xuejin Chen, et al. Depth Estimation
+for Colonoscopy Images with Self-supervised Learning from Videos. National
+Engineering Laboratory for Brain-inspired Intelligence Technology and
+Application, University of Science and Technology of China, Hefei, China, 2021.
+MICCAI 2021:
+https://miccai2021.org/openaccess/paperlinks/2021/09/01/143-Paper0443.html
+
+Boykov, Yuri Y., and M-P. Jolly. "Interactive graph cuts for optimal boundary &
+region segmentation of objects in ND images." In Computer Vision, 2001. ICCV
+2001. Proceedings. Eighth IEEE International Conference on, vol. 1, pp. 105-112.
+IEEE, 2001.
+
+L. Grady, "Random Walks for Image Segmentation," in IEEE Transactions on
+Pattern Analysis and Machine Intelligence, vol. 28, no. 11, pp. 1768-1783, Nov.
+2006, doi: 10.1109/TPAMI.2006.233.
+
 ```
 
 ## Acknowledgments
