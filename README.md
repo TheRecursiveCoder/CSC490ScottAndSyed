@@ -47,8 +47,8 @@ python syn_test.py --name colon2depth_512p --no_instance --label_nc 0
 python train.py --name colon2depth_512p --batchSize 8 --gpu_ids 1,2 --label_nc 0 --no_instance --tf_log --no_vgg_loss --continue_train```
 ```
 
-### Citation
-If you find this useful for your research, please use the following.
+### Citations
+The following sources were used as baseline for our research work: 
 
 ```
 
